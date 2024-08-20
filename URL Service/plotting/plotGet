@@ -1,0 +1,9 @@
+#!/usr/bin/gnuplot --persist
+set term png     # Set the output format to PNG
+set output 'output_loadget.png'  # Set the output file name
+
+set xlabel "Number of requests"  # Add a label for the x-axis
+set ylabel "Execution time (secs)"  # Add a label for the y-axis
+
+plot "loadGet.tsv" using 1:2 title 'Performance Tester GET requests' with points pt 7 lc rgb "red"
+

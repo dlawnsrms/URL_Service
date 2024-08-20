@@ -1,0 +1,15 @@
+<html>\n<body>
+<h1>Cassandra Cluster Status</h1>
+<h1>Container Status</h1>
+<div>CONTAINER ID   IMAGE                              COMMAND                  CREATED         STATUS                   PORTS                                                                                                                NAMES</div>
+<div>bbe448cca4b4   redis:latest                       "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes             6379/tcp                                                                                                             urlShortener_redis-primary.1.9gc05j5d7urrnsde7ycd9whlj</div>
+<div>64088db96c6a   redis:latest                       "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes             6379/tcp                                                                                                             urlShortener_redis-secondary.1.tsq6ioh8h7sg6x9hicfmff2mm</div>
+<div>2523b77b9839   rayhanfazal/url_shortner_test:v1   "python3 app.py"         2 minutes ago   Up 2 minutes (healthy)   80/tcp                                                                                                               urlShortener_web.1.q4t48jpvle583o4rkbxivhnr6</div>
+<div>2def06be161d   dockersamples/visualizer:stable    "npm start"              2 minutes ago   Up 2 minutes             8080/tcp                                                                                                             urlShortener_visualizer.1.dsi6qtubh0bjafhm5h5mk52gj</div>
+<div>124b1f5ebf7d   cassandra                          "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes             7001/tcp, 0.0.0.0:7000->7000/tcp, :::7000->7000/tcp, 7199/tcp, 0.0.0.0:9042->9042/tcp, :::9042->9042/tcp, 9160/tcp   cassandra-node</div>
+<h1>Swarm Status</h1>
+<div>ID                            HOSTNAME        STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION</div>
+<div>be0yvctstilzbif6fwuc453r6 *   node14214645a   Ready     Active         Leader           24.0.5</div>
+<div>woxplaq0eg2skk1bpaiwmeasa     node14214645b   Ready     Active         Reachable        24.0.5</div>
+<div>9feh42pun0hgfaxlpamsja06n     node14214645c   Ready     Active         Reachable        24.0.5</div>
+</body></html>

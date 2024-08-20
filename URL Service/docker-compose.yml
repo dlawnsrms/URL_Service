@@ -1,0 +1,68 @@
+version: "3.8"
+services:
+  web:
+    image: rayhanfazal/url_shortner_test:v1
+    deploy:
+      replicas: 3 
+      restart_policy:
+        condition: on-failure
+      placement:
+        max_replicas_per_node: 1
+        preferences:
+          - spread: node.id
+    ports:
+      - "4000:8080"
+    networks:
+      - webnet
+  
+  nginx:
+    image: rayhanfazal/nginx-image:nginx-tag
+    ports:
+      - "4001:4001"
+    networks:
+      - webnet
+    depends_on:
+      - web
+
+  redis-primary:
+    image: redis
+    user: "1000:1000"
+    ports:
+      - "6379:6379"
+    volumes:
+      - "/home/student/a2group99/redis/data:/data"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    command: redis-server --maxmemory 100mb --maxmemory-policy allkeys-lru --appendonly yes
+    networks:
+      - webnet
+
+  redis-secondary:
+    image: redis
+    ports:
+      - "6380:6379"
+    deploy:
+      replicas: 2
+      placement:
+        max_replicas_per_node: 1
+        preferences:
+          - spread: node.id
+    command: ["--replicaof", "redis-primary", "6379"]
+    networks:
+      - webnet
+  
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8082:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+
+networks:
+  webnet:

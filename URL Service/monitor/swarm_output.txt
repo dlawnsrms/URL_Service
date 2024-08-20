@@ -1,0 +1,4 @@
+ID                            HOSTNAME        STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+be0yvctstilzbif6fwuc453r6 *   node14214645a   Ready     Active         Leader           24.0.5
+woxplaq0eg2skk1bpaiwmeasa     node14214645b   Ready     Active         Reachable        24.0.5
+9feh42pun0hgfaxlpamsja06n     node14214645c   Ready     Active         Reachable        24.0.5
