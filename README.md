@@ -6,11 +6,14 @@ This repository contains the architecture and implementation details for a distr
 # System Architecture
 The system is composed of several VMs hosting various services, including Cassandra for data storage, Redis for caching, and Docker containers for application deployment.
 
-# Application System: The application is deployed using Docker Swarm across multiple VMs, ensuring redundancy and scalability. Nginx is employed for load balancing, distributing incoming requests across the system.
+# Application System
+The application is deployed using Docker Swarm across multiple VMs, ensuring redundancy and scalability. Nginx is employed for load balancing, distributing incoming requests across the system.
 
-# Monitoring System: A dedicated VM runs the monitoring script (monitor.sh), which checks the health of the Cassandra cluster, Docker containers, and Docker Swarm. It utilizes Docker Health Check and outputs the status to an HTML file for easy monitoring.
+# Monitoring System
+A dedicated VM runs the monitoring script (monitor.sh), which checks the health of the Cassandra cluster, Docker containers, and Docker Swarm. It utilizes Docker Health Check and outputs the status to an HTML file for easy monitoring.
 
-# Data Flow: Data is primarily stored in Redis and Cassandra instances. Redis is configured for caching with one primary and two secondary nodes, while Cassandra handles data persistence with a replication factor of 2, ensuring data consistency and availability across nodes.
+# Data Flow
+Data is primarily stored in Redis and Cassandra instances. Redis is configured for caching with one primary and two secondary nodes, while Cassandra handles data persistence with a replication factor of 2, ensuring data consistency and availability across nodes.
 
 # Key Features
 # Consistency
